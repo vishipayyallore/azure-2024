@@ -10,16 +10,15 @@ RUN apt-get update && \
     apt-get -y install --no-install-recommends vim && \
     curl -sSL https://get.docker.com/ | sh
 
-# [Optional] Uncomment this section to install additional OS packages.
-RUN apt-get update \
-    && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install --no-install-recommends 
-#  \
-# azure-functions-core-tools-3 \
-# azure-functions-core-tools-4
+RUN curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg && \
+    mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg && \
+    sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/debian/11/prod bullseye main" > /etc/apt/sources.list.d/dotnetdev.list'
 
-# Install Azure Functions Extension
-# RUN su vscode -c "code --install-extension ms-azuretools.vscode-azurefunctions"
+# [Optional] Uncomment this section to install additional OS packages.
+RUN apt-get update && \
+    export DEBIAN_FRONTEND=noninteractive && \
+    apt-get -y install --no-install-recommends  \
+    azure-functions-core-tools-4
 
 RUN dotnet tool install -g dotnet-ef
 
