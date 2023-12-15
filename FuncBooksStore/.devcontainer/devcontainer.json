@@ -1,38 +1,42 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/dotnet
 {
-    "name": "Books Stores Az Func Dev Container",
-    "dockerComposeFile": [
-        "../docker/docker-compose.yaml"
-    ],
-    "service": "azfunc-devenv",
-    "workspaceFolder": "/workspace",
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "ms-dotnettools.csdevkit",
-                "ms-dotnettools.csharp",
-                "shardulm94.trailing-spaces",
-                "mikestead.dotenv",
-                "fernandoescolar.vscode-solution-explorer",
-                "jmrog.vscode-nuget-package-manager",
-                "patcx.vscode-nuget-gallery",
-                "pkief.material-icon-theme",
-                "ms-mssql.mssql",
-                "humao.rest-client",
-                "rangav.vscode-thunder-client",
-                "formulahendry.dotnet-test-explorer",
-                "kevin-chatham.aspnetcorerazor-html-css-class-completion",
-                "syncfusioninc.blazor-vscode-extensions",
-                "ms-dotnettools.vscode-dotnet-runtime",
-                "ms-dotnettools.blazorwasm-companion"
-            ],
-            "settings": {
-                "azureFunctions.preDeployTask": "publish"
-            },
-            "forwardPorts": [
-                7071,
-                7072
-            ]
-        }
-    },
-    "remoteUser": "root"
+	"name": "C# (.NET)",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/dotnet:1-8.0-bookworm",
+	"features": {
+		"ghcr.io/flexwie/devcontainer-features/op:1": {}
+	},
+	"workspaceFolder": "/workspace",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-dotnettools.csharp",
+				"ms-azuretools.vscode-azurefunctions"
+			],
+			"settings": {
+				"azureFunctions.preDeployTask": "publish"
+			}
+		}
+	},
+	"remoteUser": "root",
+	"forwardPorts": [
+		7071,
+		7072
+	]
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [5000, 5001],
+	// "portsAttributes": {
+	//		"5001": {
+	//			"protocol": "https"
+	//		}
+	// }
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "dotnet restore",
+	// Configure tool-specific properties.
+	// "customizations": {},
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
 }
