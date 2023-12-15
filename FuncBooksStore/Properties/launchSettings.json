@@ -2,7 +2,7 @@
   "profiles": {
     "FuncBooksStore": {
       "commandName": "Project",
-      "commandLineArgs": "--port 7257",
+      "commandLineArgs": "--port 7061",
       "launchBrowser": false
     }
   }
