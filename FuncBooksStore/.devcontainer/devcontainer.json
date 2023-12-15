@@ -1,9 +1,9 @@
 {
-    "name": "Good Habits Dev Container",
+    "name": "Books Stores Az Func Dev Container",
     "dockerComposeFile": [
         "../docker/docker-compose.yaml"
     ],
-    "service": "dev-env",
+    "service": "azfunc-devenv",
     "workspaceFolder": "/workspace",
     "customizations": {
         "vscode": {
@@ -24,6 +24,13 @@
                 "syncfusioninc.blazor-vscode-extensions",
                 "ms-dotnettools.vscode-dotnet-runtime",
                 "ms-dotnettools.blazorwasm-companion"
+            ],
+            "settings": {
+                "azureFunctions.preDeployTask": "publish"
+            },
+            "forwardPorts": [
+                7071,
+                7072
             ]
         }
     },
