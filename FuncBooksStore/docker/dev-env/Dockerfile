@@ -1,12 +1,17 @@
-# [Choice] .NET version: 7.0, 6.0, 5.0, 3.1, 6.0-bullseye, 5.0-bullseye, 3.1-bullseye, 6.0-focal, 5.0-focal, 3.1-focal
-ARG VARIANT="7.0-bullseye-slim"
+# [Choice] .NET version: 7.0, 6.0, 5.0, 3.1, 6.0-bullseye, 5.0-bullseye, 3.1-bullseye, 6.0-focal, 5.0-focal, 3.1-focal, 8.0-bullseye
+ARG VARIANT="8.0-bullseye-slim"
 
 FROM mcr.microsoft.com/vscode/devcontainers/dotnet:${VARIANT}
 
-# [Choice] Node.js version: none, lts/*, 16, 14, 12, 10
-ARG NODE_VERSION="none"
+# [Optional] Uncomment this section to install additional OS packages.
+RUN apt-get update \
+    && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y install --no-install-recommends \
+        azure-functions-core-tools-3 \
+        azure-functions-core-tools-4
 
-RUN if [ "${NODE_VERSION}" != "none" ]; then su vscode -c "umask 0002 && . /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSION} 2>&1"; fi
+# Install Azure Functions Extension
+RUN su vscode -c "code --install-extension ms-azuretools.vscode-azurefunctions"
 
 # [Optional] Uncomment this section to install additional OS packages.
 RUN apt-get update && \
