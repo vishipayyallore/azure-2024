@@ -9,8 +9,8 @@ services:
       - booksstore-db-volume:/var/lib/mssqlql/data/
     env_file:
       - sqlserver/sqlserver.env
-  dev-env:
-    container_name: dev-env
+  azfunc-devenv:
+    container_name: azfunc-devenv
     build:
       context: ./dev-env
     volumes:
