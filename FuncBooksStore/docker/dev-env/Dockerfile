@@ -1,17 +1,6 @@
 # [Choice] .NET version: 7.0, 6.0, 5.0, 3.1, 6.0-bullseye, 5.0-bullseye, 3.1-bullseye, 6.0-focal, 5.0-focal, 3.1-focal, 8.0-bullseye
-ARG VARIANT="8.0-bullseye-slim"
-
-FROM mcr.microsoft.com/vscode/devcontainers/dotnet:${VARIANT}
-
-# [Optional] Uncomment this section to install additional OS packages.
-RUN apt-get update \
-    && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install --no-install-recommends \
-        azure-functions-core-tools-3 \
-        azure-functions-core-tools-4
-
-# Install Azure Functions Extension
-RUN su vscode -c "code --install-extension ms-azuretools.vscode-azurefunctions"
+ARG DOTNET_VARIANT="8.0-bullseye-slim"
+FROM mcr.microsoft.com/vscode/devcontainers/dotnet:${DOTNET_VARIANT}
 
 # [Optional] Uncomment this section to install additional OS packages.
 RUN apt-get update && \
@@ -21,13 +10,15 @@ RUN apt-get update && \
     apt-get -y install --no-install-recommends vim && \
     curl -sSL https://get.docker.com/ | sh
 
-# Install .NET 8.0
-RUN wget https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb -O packages-microsoft-prod.deb \
-    && dpkg -i packages-microsoft-prod.deb \
-    && apt-get update \
-    && apt-get install -y apt-transport-https \
-    && apt-get update \
-    && apt-get install -y dotnet-sdk-8.0
+# [Optional] Uncomment this section to install additional OS packages.
+RUN apt-get update \
+    && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y install --no-install-recommends \
+    azure-functions-core-tools-3 \
+    azure-functions-core-tools-4
+
+# Install Azure Functions Extension
+RUN su vscode -c "code --install-extension ms-azuretools.vscode-azurefunctions"
 
 RUN dotnet tool install -g dotnet-ef
 
