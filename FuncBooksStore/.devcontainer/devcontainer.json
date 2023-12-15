@@ -1,0 +1,36 @@
+{
+	"name": "Books Stores Az Func Dev Container",
+	"dockerComposeFile": [
+		"../docker/docker-compose.yaml"
+	],
+	"service": "azfunc-devenv",
+	"workspaceFolder": "/workspace",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-dotnettools.csdevkit",
+				"ms-dotnettools.csharp",
+				"shardulm94.trailing-spaces",
+				"mikestead.dotenv",
+				"fernandoescolar.vscode-solution-explorer",
+				"jmrog.vscode-nuget-package-manager",
+				"patcx.vscode-nuget-gallery",
+				"pkief.material-icon-theme",
+				"ms-mssql.mssql",
+				"humao.rest-client",
+				"formulahendry.dotnet-test-explorer",
+				"kevin-chatham.aspnetcorerazor-html-css-class-completion",
+				"ms-dotnettools.vscode-dotnet-runtime",
+				"ms-azuretools.vscode-azurefunctions"
+			],
+			"settings": {
+				"azureFunctions.preDeployTask": "publish"
+			},
+			"forwardPorts": [
+				7071,
+				7072
+			]
+		}
+	},
+	"remoteUser": "root"
+}

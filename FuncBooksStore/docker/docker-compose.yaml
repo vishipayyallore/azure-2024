@@ -1,0 +1,21 @@
+version: "3.4"
+services:
+  sql_server:
+    container_name: sqlserver
+    image: "mcr.microsoft.com/mssql/server:2022-latest"
+    ports:
+      - "9876:1433"
+    volumes:
+      - booksstore-db-volume:/var/lib/mssqlql/data/
+    env_file:
+      - sqlserver/sqlserver.env
+  azfunc-devenv:
+    container_name: azfunc-devenv
+    build:
+      context: ./dev-env
+    volumes:
+      - "..:/workspace"
+    stdin_open: true # docker run -i
+    tty: true # docker run -t
+volumes:
+  booksstore-db-volume: null
