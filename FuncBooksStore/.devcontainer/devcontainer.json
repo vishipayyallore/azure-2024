@@ -18,12 +18,9 @@
 				"pkief.material-icon-theme",
 				"ms-mssql.mssql",
 				"humao.rest-client",
-				"rangav.vscode-thunder-client",
 				"formulahendry.dotnet-test-explorer",
 				"kevin-chatham.aspnetcorerazor-html-css-class-completion",
-				"syncfusioninc.blazor-vscode-extensions",
 				"ms-dotnettools.vscode-dotnet-runtime",
-				"ms-dotnettools.blazorwasm-companion",
 				"ms-azuretools.vscode-azurefunctions"
 			],
 			"settings": {

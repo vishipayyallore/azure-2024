@@ -13,12 +13,13 @@ RUN apt-get update && \
 # [Optional] Uncomment this section to install additional OS packages.
 RUN apt-get update \
     && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install --no-install-recommends \
-    azure-functions-core-tools-3 \
-    azure-functions-core-tools-4
+    && apt-get -y install --no-install-recommends 
+#  \
+# azure-functions-core-tools-3 \
+# azure-functions-core-tools-4
 
 # Install Azure Functions Extension
-RUN su vscode -c "code --install-extension ms-azuretools.vscode-azurefunctions"
+# RUN su vscode -c "code --install-extension ms-azuretools.vscode-azurefunctions"
 
 RUN dotnet tool install -g dotnet-ef
 
