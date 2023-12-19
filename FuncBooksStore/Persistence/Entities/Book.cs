@@ -14,5 +14,5 @@ public class Book
 
     public string? ISBN { get; set; }
 
-    public int Pages { get; set; }
+    public decimal Pages { get; set; }
 }
