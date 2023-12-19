@@ -8,20 +8,15 @@ using System.Text.Json;
 
 namespace FuncBooksStore
 {
-    public class GetAllBooks(BooksDbContext dbContext)
+    public class GetAllBooks(ILogger<GetAllBooks> logger, BooksDbContext dbContext)
     {
-        //private readonly ILogger _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+        private readonly ILogger<GetAllBooks> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         private readonly BooksDbContext _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
-
-        //public GetAllBooks(ILoggerFactory loggerFactory)
-        //{
-        //    _logger = loggerFactory.CreateLogger<GetAllBooks>();
-        //}
 
         [Function("GetAllBooks")]
         public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req)
         {
-            //_logger.LogInformation("C# HTTP trigger function processed a request.");
+            _logger.LogInformation("Request received at GetAllBooks().");
 
             var books = await _dbContext.Books.ToListAsync();
 

@@ -8,11 +8,11 @@ var host = new HostBuilder()
     .ConfigureFunctionsWorkerDefaults()
     .ConfigureServices((hostContext, services) =>
     {
-        string sqlConnectionString = hostContext.Configuration.GetConnectionString("SQLConnectionString");
-
         // Add SQL Server connection
         _ = services.AddDbContext<BooksDbContext>(options =>
             options.UseSqlServer(hostContext.Configuration.GetConnectionString("SQLConnectionString")));
+
+        services.AddLogging();
 
     })
     .Build();
