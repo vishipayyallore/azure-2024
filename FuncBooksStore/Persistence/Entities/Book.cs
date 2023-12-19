@@ -1,4 +1,4 @@
-﻿namespace Books.Persistence.Entities;
+﻿namespace FuncBooksStore.Persistence.Entities;
 
 public class Book
 {
