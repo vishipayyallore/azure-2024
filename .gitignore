@@ -403,3 +403,6 @@ LogicAppsDemos/Demo1LA/__azurite_db_queue_extent__.json
 LogicAppsDemos/Demo1LA/__azurite_db_table__.json
 LogicAppsDemos/Demo1LA/__blobstorage__/c7852e79-f13e-4071-ba1e-6339ef204c8a
 LogicAppsDemos/Demo1LA/__queuestorage__/94d2f5da-1a06-4cf5-b75e-992be15a9abd
+LogicAppsDemos/stdlogicappdemo/__azurite_db_blob__.json
+LogicAppsDemos/stdlogicappdemo/__azurite_db_blob_extent__.json
+LogicAppsDemos/stdlogicappdemo/__blobstorage__/a3fbed8c-d202-4c2e-a68e-5b9a43220f75
